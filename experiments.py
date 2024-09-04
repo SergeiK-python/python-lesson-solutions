@@ -34,6 +34,25 @@ def print_hi(name):
     print(int('037'))
     print(bool(''))
 
+    print("M""M")
+    print("M" + "M")
+    print("M" * 2)
+
+    name : str = "Denis"
+    print(name[0:3])
+    print(name[::2])
+    print(name[0:3:2])
+    print(name[3:100])
+    print(name[-1:-100:-1])
+    print(name[::-1])
+    print(name[-1:-100:-2])
+
+    #https://habr.com/ru/companies/ruvds/articles/500296/
+    another_name = "Denis"
+    print(name == another_name)
+    print(name is another_name) #??? True... memory optimization? str as primitive type?
+    print(id(name) == id(another_name)) #??? True... memory optimization?
+    print(id(name) is id(another_name))
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
