@@ -47,12 +47,56 @@ def print_hi(name):
     print(name[::-1])
     print(name[-1:-100:-2])
 
+    ii = 1
+    jj = 1
+    print("ii=",ii,", jj=",jj)
+    print("ii=" + str(ii) + ", jj=" + str(jj))
+    print(f"ii={ii}, jj={jj}")
+
+    z : int = 1
+    z = "cat"
+    print(z, type(z))
+
+    w = 1
+    w = "cat"
+    print(w, type(w))
+    print(w.__str__())
+    print(repr(w))
+    print(w.__repr__())
+    print(f"{w}")
+    print(f"{w!r}")
+
     #https://habr.com/ru/companies/ruvds/articles/500296/
     another_name = "Denis"
     print(name == another_name)
     print(name is another_name) #??? True... memory optimization? str as primitive type?
     print(id(name) == id(another_name)) #??? True... memory optimization?
     print(id(name) is id(another_name))
+
+    tuple_ = tuple([[1,2],True,"Dog"])
+    print(tuple_)
+    tuple_[0].append(True)
+    print(tuple_)
+    tuple_[0].extend([7,6,7])
+    print(tuple_)
+    tuple_[0].extend((7, True, "Cat"))
+    value = (7, True, "Pig")
+    tuple_[0].extend(value) # added as a list
+    print("\t",tuple_)
+    tuple_[0].remove(True) # it does not work! It deletes the first element
+    print(tuple_)
+    tuple_[0].remove(7)  # it works well (deletes the first occurrence of 7)
+    print(tuple_)
+    #tuple_[0].remove(["Dog"]) # fall down, it is not presented
+    tuple_[0].remove("Pig") # done well
+    print(tuple_)
+
+    list = ["0","1","2","2","3"]
+    list.remove("1")
+    list[-1] = "0"
+    print(list)
+    list.remove("0") # Remove first occurrence of value!
+    print(list)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
