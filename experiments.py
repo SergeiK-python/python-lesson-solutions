@@ -29,11 +29,18 @@ def print_hi(name):
     print(2 ** 256)
     print(2.00000000001 ** 256.000000001)
     print(0xA // 2.0)   # float
+    print('0.1234567890123456789', 0.1234567890123456789)
     print('Hi \'Zerg\'') # str
     print("Hi" + 'Zerg') # "" = ''
     y : bool = True      # boolean
     print(y, not y)      # ~x ??? == != and or not
     print (type(y))
+    print('type(y) is int:', type(y) is int)    # !!!
+    print('instance is int:', isinstance(y, int)) # !!!
+    print('type(y) is bool:', type(y) is bool)
+    print('instance is bool:', isinstance(y, bool)) # !!!
+    c = 1 + 2.0j #complex
+    print(c * c.conjugate())
     print((not y) or (x < 5 < 10 * x))
     print(int('037'))
     print(bool(''))
@@ -41,6 +48,10 @@ def print_hi(name):
     print("M""M")
     print("M" + "M")
     print("M" * 2)
+    print("M\n" * 2)
+    print("""N
+N
+N""") # vfc
 
     name : str = "Denis"
     print(name[0:3])
@@ -58,7 +69,7 @@ def print_hi(name):
     print(f"ii={ii}, jj={jj}")
 
     z : int = 1
-    z = "cat"
+    z = "cat" # <- warning
     print(z, type(z))
 
     w = 1
@@ -96,6 +107,9 @@ def print_hi(name):
     tuple_[0].remove("Pig") # done well
     print(tuple_)
 
+    tuple_ = tuple({5, 6, 7})
+    print(tuple_)
+
 def lists_() -> str:
     print("---lists tests---")
     list_ = ["0", "1", "2", "2", "3"]
@@ -127,6 +141,15 @@ def lists_() -> str:
     print(True == bool(2))
     print(True == boolean(2))
 
+    list_ = list('hello')
+    print(list_)
+    print("".join(list_))
+
+    list_ = [1, 3+6.6j, 8]
+    print(list_)
+    sum_ = sum(list_)
+    print(sum_/len(list_))
+
     return "lists tests done"
 
 def maps_() -> str :
@@ -145,6 +168,13 @@ def maps_() -> str :
     print(map_.keys())
     print(map_.values())
     print(map_.items())
+
+    map_ = {(1, True, 2.0) : 1, (1, 1, 2.0) : 777, (-1, False, -2.0) : 2} # be careful =)
+    print(map_)
+
+    print(dict([[1, 2], [3, 4]])) # some warning ?
+    print(dict([(3,26),(4,44)]))  # no warnings !
+
     return "maps tests done"
 
 def sets_() -> str :
@@ -167,6 +197,12 @@ def sets_() -> str :
     print(set__, "is subset of set", set_, "result", set__.issubset(set_))
     list_ = ["0", "1", "2", "2", "3"]
     print(set(list_))
+
+    set_1 = {0,1}
+    set_2 = {1, 2}
+    print(set.intersection(set_1,set_2))
+    print(set.union(set_1, set_2))
+    print(set.symmetric_difference(set_1, set_2))
     return "sets tests done"
 
 
