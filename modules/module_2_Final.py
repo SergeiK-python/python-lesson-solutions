@@ -22,7 +22,7 @@ _max = 20
 
 print_passwords(_min, _max)
 
-#small game for winners
+# a small game for winners
 print("play a bit my friend")
 selections = [ii for ii in range(_min, _max + 1)]
 while True:
