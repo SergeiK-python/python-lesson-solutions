@@ -33,8 +33,6 @@ def print_hi(name):
     print('Hi \'Zerg\'') # str
     print("Hi" + 'Zerg') # "" = ''
     y : bool = True      # boolean
-    print(y, not y)      # ~x ??? == != and or not
-    print (type(y))
     print('type(y) is int:', type(y) is int)    # !!!
     print('instance is int:', isinstance(y, int)) # !!!
     print('type(y) is bool:', type(y) is bool)
