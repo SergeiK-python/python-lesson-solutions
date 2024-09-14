@@ -1,4 +1,4 @@
-#Дополнительное практическое задание по модулю*
+# Дополнительное практическое задание по модулю*
 import random
 
 
@@ -11,10 +11,12 @@ def get_password(number):
 
     return password
 
+
 def print_passwords(_min, _max):
     print("all passwords:")
     for ii in range(_min, _max + 1):
         print(f"{ii} - {get_password(ii)}")
+
 
 # program settings
 _min = 3
