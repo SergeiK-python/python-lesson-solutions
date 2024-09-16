@@ -30,7 +30,7 @@ selections = [ii for ii in range(_min, _max + 1)]
 while True:
     number = random.choice(selections)
     selections.remove(number)
-    password = input(f"get your number for {number}: ")
+    password = input(f"give your number for {number}: ")
     if password == get_password(number):
         if len(selections) == 0:
             print("ok, boss, go ahead")
