@@ -4,7 +4,7 @@ def is_address_good(address: str):
     if address.find(" ") >= 0 or address.find("..") >= 0:
         return False
     split_address = address.split("@")
-    if len(split_address) < 2 or split_address[0] == "":
+    if len(split_address) != 2 or split_address[0] == "":
         return False
     split_address = split_address[-1].split(".")
     if len(split_address) < 2 or split_address[0] == "":
