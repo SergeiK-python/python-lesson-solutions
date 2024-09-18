@@ -12,10 +12,10 @@ def print_hi(name):
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
     # some experiments
-    is_ : bool = True
+    is_: bool = True
     print(type(is_))
 
-    x : int = 1
+    x: int = 1
     print(type(x))
     print(type(0xA5))   # hex
     print(type(0o11))   # octo
@@ -67,7 +67,7 @@ N""") # vfc
     print(f"ii={ii}, jj={jj}")
 
     z : int = 1
-    z = "cat" # <- warning
+    z = "cat"  # <- warning
     print(z, type(z))
 
     w = 1
@@ -79,11 +79,11 @@ N""") # vfc
     print(f"{w}")
     print(f"{w!r}")
 
-    #https://habr.com/ru/companies/ruvds/articles/500296/
+    # https://habr.com/ru/companies/ruvds/articles/500296/
     another_name = "Denis"
     print(name == another_name)
-    print(name is another_name) #??? True... memory optimization? str as primitive type?
-    print(id(name) == id(another_name)) #??? True... memory optimization?
+    print(name is another_name)  # ??? True... memory optimization? str as primitive type?
+    print(id(name) == id(another_name))  # ??? True... memory optimization?
     print(id(name) is id(another_name))
 
     tuple_ = tuple([[1,2],True,"Dog"])
@@ -96,17 +96,18 @@ N""") # vfc
     value = (7, True, "Pig")
     tuple_[0].extend(value) # added as a list
     print("\t",tuple_)
-    #tuple_.pop(0) # error
+    # tuple_.pop(0) # error
     tuple_[0].remove(True) # it does not work! It deletes the first element
     print(tuple_)
     tuple_[0].remove(7)  # it works well (deletes the first occurrence of 7)
     print(tuple_)
-    #tuple_[0].remove(["Dog"]) # fall down, it is not presented
+    # tuple_[0].remove(["Dog"]) # fall down, it is not presented
     tuple_[0].remove("Pig") # done well
     print(tuple_)
 
     tuple_ = tuple({5, 6, 7})
     print(tuple_)
+
 
 def lists_() -> str:
     print("---lists tests---")
@@ -126,7 +127,7 @@ def lists_() -> str:
     array.remove(True)
     print(array,"      <- array.remove(True) result")
     inner.append(4)
-    #inner.add(5) # error
+    # inner.add(5) # error
     inner.append(f"\"inner\":\"{inner}\"")
     array.remove(False)
     print(array,"      <- array.remove(False) result")
@@ -148,18 +149,23 @@ def lists_() -> str:
     sum_ = sum(list_)
     print(sum_/len(list_))
 
+    numbers = [1, 2, 3]
+    for number in numbers:
+        print(number, (id(number) - id(numbers[0])) // int.__sizeof__(numbers[0]), end=" ")
+
     return "lists tests done"
+
 
 def maps_() -> str :
     print("---maps tests---")
-    #map_ = {"1" : 1, "1" : 2,"3" : 3} # error
+    # map_ = {"1" : 1, "1" : 2,"3" : 3} # error
     map_ = {"1": 1, "4": 4, "3": 3}
     print(map_)
-    #print(map_["5"]) # error
+    # print(map_["5"]) # error
     print(map_.get("5")) # None
     print(map_.get("5", -1))  # -1
     print(map_)
-    #del map_["5"] # error
+    # del map_["5"] # error
     map_.pop("1")
     map_.update({"3": 6, "4": 8})
     print(map_)
@@ -170,10 +176,11 @@ def maps_() -> str :
     map_ = {(1, True, 2.0) : 1, (1, 1, 2.0) : 777, (-1, False, -2.0) : 2} # be careful =)
     print(map_)
 
-    print(dict([[1, 2], [3, 4]])) # some warning ?
-    print(dict([(3,26),(4,44)]))  # no warnings !
+    print(dict([[1,2], [3,4]]))  # some warning ?
+    print(dict([(3, 26), (4, 44)]))  # no warnings !
 
     return "maps tests done"
+
 
 def sets_() -> str :
     print("---sets tests---")
@@ -181,16 +188,16 @@ def sets_() -> str :
     print(set_)
     set_.remove(True)
     print(set_)
-    #set_.remove(False) # error 0 is absent
+    # set_.remove(False) # error 0 is absent
     b = set_.discard(False)
     print(set_, "removed", b)
     a = set_.pop() # removed the first element
     print(set_, "removed", a)
     set_.update([0, 2, 7, 8]) # add all
     set_.add(10) # add one
-    #set_.add([9, 10]) # error not hashable object ?
+    # set_.add([9, 10]) # error not hashable object ?
     print(set_)
-    #set_.pop(3) #error
+    # set_.pop(3) #error
     set__ = {0, 2}
     print(set__, "is subset of set", set_, "result", set__.issubset(set_))
     list_ = ["0", "1", "2", "2", "3"]
@@ -207,8 +214,8 @@ def sets_() -> str :
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('PyCharm')
-    print('\n',lists_(),'\n\n')
-    print('\n',maps_(),'\n\n')
-    print('\n',sets_(),'\n\n')
+    print('\n', lists_(), '\n\n')
+    print('\n', maps_(), '\n\n')
+    print('\n', sets_(), '\n\n')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
