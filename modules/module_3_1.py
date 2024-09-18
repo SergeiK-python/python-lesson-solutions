@@ -17,8 +17,9 @@ def string_info(string):
 def is_contains(string, list_to_search: list):
     count_calls()
     is_found = False
+    string = string.upper()
     for _string in list_to_search:
-        if string.upper() == _string.upper():
+        if string == _string.upper():
             is_found = True
             break
     return is_found
