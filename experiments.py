@@ -37,7 +37,7 @@ def print_hi(name):
     print('instance is int:', isinstance(y, int)) # !!!
     print('type(y) is bool:', type(y) is bool)
     print('instance is bool:', isinstance(y, bool)) # !!!
-    c = 1 + 2.0j #complex
+    c = 1 + 2.0j  # complex
     print(c * c.conjugate())
     print((not y) or (x < 5 < 10 * x))
     print(int('037'))
@@ -102,7 +102,7 @@ N""") # vfc
     tuple_[0].remove(7)  # it works well (deletes the first occurrence of 7)
     print(tuple_)
     # tuple_[0].remove(["Dog"]) # fall down, it is not presented
-    tuple_[0].remove("Pig") # done well
+    tuple_[0].remove("Pig")  # done well
     print(tuple_)
 
     tuple_ = tuple({5, 6, 7})
@@ -113,11 +113,11 @@ def lists_() -> str:
     print("---lists tests---")
     list_ = ["0", "1", "2", "2", "3"]
     print(list_)
-    list_.pop(1) # Remove element by its index
+    list_.pop(1)  # Remove element by its index
     print(list_)
     list_[-1] = "0"
     print(list_)
-    list_.remove("0") # Remove first occurrence of value!
+    list_.remove("0")  # Remove first occurrence of value!
     print(list_)
 
     print("---other lists tests---")
@@ -176,7 +176,7 @@ def maps_() -> str :
     map_ = {(1, True, 2.0) : 1, (1, 1, 2.0) : 777, (-1, False, -2.0) : 2} # be careful =)
     print(map_)
 
-    print(dict([[1,2], [3,4]]))  # some warning ?
+    print(dict([[1, 2], [3, 4]]))  # some warning ?
     print(dict([(3, 26), (4, 44)]))  # no warnings !
 
     return "maps tests done"
