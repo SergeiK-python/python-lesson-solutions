@@ -3,7 +3,9 @@
 def calculate_structure_sum(arg, *args):
     added = 0
     if isinstance(arg, int):
-        added = int(arg)
+        added = arg
+    elif isinstance(arg, float):
+        added = arg  # maybe this case should be ignored or not, who knows
     elif isinstance(arg, str):
         added = len(arg)
     elif isinstance(arg, list):
