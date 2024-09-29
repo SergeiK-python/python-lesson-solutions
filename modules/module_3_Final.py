@@ -2,8 +2,11 @@
 
 def calculate_structure_sum(arg, *args):
     added = 0
-    if isinstance(arg, int):
-        added = arg
+
+    if type(arg) is bool:
+        added = 0  # boolean instances are ignored
+    elif isinstance(arg, int):
+        added = arg  # int instances without boolean cases
     elif isinstance(arg, float):
         added = arg  # maybe this case should be ignored or not, who knows
     elif isinstance(arg, str):
