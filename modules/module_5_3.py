@@ -48,7 +48,7 @@ class House:
 
     def __radd__(self, value: int):
         if isinstance(value, int):
-            return self.number_of_floors + value
+            return self + value
         elif isinstance(value, House):
             return self + value.number_of_floors
 
