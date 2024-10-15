@@ -12,32 +12,51 @@ class House:
         return f"Название: {self.name}, кол-во этажей: {self.number_of_floors}"
 
     def __eq__(self, other):
+        if isinstance(other, int):
+            return self.number_of_floors == other
         return isinstance(other, House) and self.number_of_floors == other.number_of_floors
 
     def __lt__(self, other):
-        return self.number_of_floors < other.number_of_floors
+        if isinstance(other, int):
+            return self.number_of_floors < other
+        return isinstance(other, House) and self.number_of_floors < other.number_of_floors
 
     def __le__(self, other):
-        return self.number_of_floors <= other.number_of_floors
+        if isinstance(other, int):
+            return self.number_of_floors <= other
+        return isinstance(other, House) and self.number_of_floors <= other.number_of_floors
 
     def __gt__(self, other):
-        return self.number_of_floors > other.number_of_floors
+        if isinstance(other, int):
+            return self.number_of_floors > other
+        return isinstance(other, House) and self.number_of_floors > other.number_of_floors
 
     def __ge__(self, other):
-        return self.number_of_floors >= other.number_of_floors
+        if isinstance(other, int):
+            return self.number_of_floors >= other
+        return isinstance(other, House) and self.number_of_floors >= other.number_of_floors
 
     def __ne__(self, other):
         return not self == other
 
     def __add__(self, value: int):
-        self.number_of_floors += value
+        if isinstance(value, int):
+            self.number_of_floors += value
+        elif isinstance(value, House):
+            self.number_of_floors += value.number_of_floors
         return self
 
     def __radd__(self, value: int):
-        return self + value
+        if isinstance(value, int):
+            return self.number_of_floors + value
+        elif isinstance(value, House):
+            return self + value.number_of_floors
 
     def __iadd__(self, value: int):
-        return self + value
+        if isinstance(value, int):
+            return self + value
+        elif isinstance(value, House):
+            return self + value.number_of_floors
 
 
 h1 = House('ЖК Эльбрус', 10)
