@@ -97,4 +97,4 @@ print(finder2.count('teXT')) # 4 слова teXT в тексте всего
 #     else:
 #         for ii in range(0, len(words)):
 #             if words[ii] != _words[ii]:
-#                 print(f'the content is different: {{{words[ii]}}} vs {{{words[ii]}}}')
+#                 print(f'the content is different: {{{words[ii]}}} vs {{{_words[ii]}}}')
