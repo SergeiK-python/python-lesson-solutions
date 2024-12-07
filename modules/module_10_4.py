@@ -5,7 +5,7 @@ from time import sleep
 
 
 class Table:
-    def __init__(self, number, guest = None):
+    def __init__(self, number, guest=None):
         self.number = number
         self.guest = guest
 
@@ -18,6 +18,7 @@ class Table:
     def clean(self):
         self.guest = None
 
+
 class Guest(Thread):
     def __init__(self, name):
         super().__init__()
@@ -26,6 +27,7 @@ class Guest(Thread):
     def run(self):
         wait_time = random.randint(3, 10)
         sleep(wait_time)
+
 
 class Cafe:
     def __init__(self, *args):
@@ -94,12 +96,13 @@ class Cafe:
     def _is_table_closing(self, table):
         return not (table.is_empty() or table.guest.is_alive())
 
+
 # Создание столов
 tables = [Table(number) for number in range(1, 6)]
 # Имена гостей
 guests_names = [
-'Maria', 'Oleg', 'Vakhtang', 'Sergey', 'Darya', 'Arman',
-'Vitoria', 'Nikita', 'Galina', 'Pavel', 'Ilya', 'Alexandra'
+    'Maria', 'Oleg', 'Vakhtang', 'Sergey', 'Darya', 'Arman',
+    'Vitoria', 'Nikita', 'Galina', 'Pavel', 'Ilya', 'Alexandra'
 ]
 # Создание гостей
 guests = [Guest(name) for name in guests_names]

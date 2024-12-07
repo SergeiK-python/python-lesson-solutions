@@ -6,14 +6,17 @@ import multiprocessing
 def read_info(name):
     with open(name, 'r') as f:
         all_data = []
+        for line in f:
+            all_data.append(line)
+        #return all_data
         #last_line = ""
-        while True:
-            line: str = f.readline()
-            if line != "":
-                all_data.append(line)
-                #last_line = line
-            else:
-                break
+        #while True:
+        #    line: str = f.readline()
+        #    if line != "":
+        #        all_data.append(line)
+        #        #last_line = line
+        #    else:
+        #        break
         #print (f'{name} - {len(all_data)} строк, {last_line}')
         #return all_data
 
@@ -31,6 +34,5 @@ if __name__ == '__main__':
 
     with multiprocessing.Pool() as pool:
         pool.map(read_info, filenames)
-
 
     print(f'{datetime.datetime.now() - time_in} (многопроцессный)')
