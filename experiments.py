@@ -153,6 +153,16 @@ def lists_() -> str:
     for number in numbers:
         print(number, (id(number) - id(numbers[0])) // int.__sizeof__(numbers[0]), end=" ")
 
+    list_of_data = [1,2,3]
+    iterator = iter(list_of_data)
+    value = next(iterator)
+    print(value)
+    value = next(iterator)
+    print(value)
+
+    test = [x > 3 for x in range(5)]
+    print(test)
+
     return "lists tests done"
 
 
@@ -178,6 +188,9 @@ def maps_() -> str :
 
     print(dict([[1, 2], [3, 4]]))  # some warning ?
     print(dict([(3, 26), (4, 44)]))  # no warnings !
+
+    test = {k: v for k, v in {'a': 5, 'b': 15, 'c': 20, 'd': 8}.items() if v > 10}
+    print(test)
 
     return "maps tests done"
 
