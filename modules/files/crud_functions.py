@@ -3,7 +3,7 @@
 import sqlite3
 
 database_file = 'files/products.db'
-
+database_users_file = 'files/users.db'
 
 def initiate_db():
     connection = sqlite3.connect(database_file)
@@ -18,6 +18,37 @@ def initiate_db():
     connection.commit()
     connection.close()
 
+    connection = sqlite3.connect(database_users_file)
+    cursor = connection.cursor()
+
+    cursor.execute('''CREATE TABLE IF NOT EXISTS Users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        email TEXT NOT NULL,
+        age INTEGER,
+        balance INTEGER NOT NULL
+    )''')
+    connection.commit()
+    connection.close()
+
+def is_user_exists(username):
+    connection = sqlite3.connect(database_users_file)
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM Users WHERE username = ?",
+                   (username,))
+    records = cursor.fetchall()
+    connection.close()
+    return len(records) > 0
+
+def add_user(username, email, age):
+    if is_user_exists(username):
+        return
+    connection = sqlite3.connect(database_users_file)
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO Users (username, email, age, balance) VALUES (?, ?, ?, ?)",
+                   (username, email, age, 1000))
+    connection.commit()
+    connection.close()
 
 def fill_db():
     connection = sqlite3.connect(database_file)
