@@ -24,25 +24,41 @@ for i in range(1, 11):
                    (f'User{i}', f'user{i}@gmail.com', 10 * i, 1000 * i))
 connection.commit()
 
-cursor.execute("SELECT * FROM Users")
-records = cursor.fetchall()
-for record in records:
-    id, user = record[0], record[1:]
-    if id % 2 == 1:
-        cursor.execute("UPDATE Users SET balance = ? WHERE id = ?", (500, id))
+# # too ugly and not optimal solution
+# cursor.execute("SELECT * FROM Users")
+# records = cursor.fetchall()
+# for record in records:
+#     id, user = record[0], record[1:]
+#     if id % 2 == 1:
+#         cursor.execute("UPDATE Users SET balance = ? WHERE id = ?", (500, id))
+
+size = cursor.execute("SELECT COUNT(*) FROM Users").fetchone()[0]
+for ind in range(0, size, 2):
+    cursor.execute("UPDATE Users SET balance = ? WHERE id = ?", (500, ind + 1))
 connection.commit()
+
+# # debug
+# cursor.execute("SELECT * FROM Users")
+# records = cursor.fetchall()
 # pprint(records)
 
-for record in records:
-    id, user = record[0], record[1:]
-    if id % 3 == 1:
-        cursor.execute("DELETE FROM Users WHERE id = ?", (id,))
+# # too ugly and not optimal solution
+# for record in records:
+#     id, user = record[0], record[1:]
+#     if id % 3 == 1:
+#         cursor.execute("DELETE FROM Users WHERE id = ?", (id,))
+
+for ind in range(0, size, 3):
+    cursor.execute("DELETE FROM Users WHERE id = ?", (ind + 1,))
 connection.commit()
+
+# # debug
+# cursor.execute("SELECT * FROM Users")
+# records = cursor.fetchall()
 # pprint(records)
 
 cursor.execute("SELECT * FROM Users WHERE age <> ?", (60,))
-records = cursor.fetchall()
-for record in records:
+for record in cursor.fetchall():
     id, username, email, age, balance = record
     print(f"Имя: {username} | Почта: {email} | Возраст: {age} | Баланс: {balance}")
 
